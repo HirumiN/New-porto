@@ -3,7 +3,7 @@ import { services } from '../data/portfolio'
 
 export default function Services() {
   return (
-    <Section id="services" index="02" title="Services" meta="What I do">
+    <Section id="services" index="03" title="Services" meta="What I do">
       <div className="divide-y divide-line border-t border-line">
         {services.map((service) => (
           <div

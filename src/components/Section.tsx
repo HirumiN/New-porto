@@ -10,9 +10,9 @@ type SectionProps = {
 
 export default function Section({ id, index, title, meta, children }: SectionProps) {
   return (
-    <section id={id} className="scroll-mt-20 py-14 md:py-20">
+    <section id={id} className="scroll-mt-20 py-14 md:py-10">
       <div className="mb-8 flex items-end justify-between gap-6 border-b border-line pb-5 md:mb-12">
-        <h2 className="flex items-baseline gap-3 text-sm font-medium tracking-[0.18em] text-muted uppercase">
+        <h2 className="flex items-baseline gap-3 text-xl font-medium tracking-[0.18em] text-muted uppercase">
           <span className="text-faint">{index}</span>
           {title}
         </h2>

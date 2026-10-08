@@ -3,7 +3,7 @@ import { experience } from '../data/portfolio'
 
 export default function Experience() {
   return (
-    <Section id="experience" index="03" title="Experience" meta="2021 — Present">
+    <Section id="experience" index="04" title="Experience" meta="2021 — Present">
       <ol className="divide-y divide-line border-t border-line">
         {experience.map((item) => (
           <li

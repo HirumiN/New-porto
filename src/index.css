@@ -27,3 +27,33 @@ body {
 ::selection {
   @apply bg-ink text-white;
 }
+
+.work-swiper {
+  --swiper-wrapper-transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.work-nav.swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 38s linear infinite;
+}
+
+[data-marquee]:hover .marquee,
+[data-marquee]:focus-within .marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}

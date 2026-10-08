@@ -14,6 +14,7 @@ export const profile = {
 
 export const navLinks = [
   { label: 'Work', href: '#work' },
+  { label: 'Stack', href: '#stack' },
   { label: 'Services', href: '#services' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
@@ -25,42 +26,69 @@ export const socials = [
   { label: 'Email', href: 'mailto:hirumi@example.com', icon: 'mail' },
 ] as const
 
+export const tech = [
+  { name: 'React', mark: 'Re' },
+  { name: 'TypeScript', mark: 'Ts' },
+  { name: 'Tailwind CSS', mark: 'Tw' },
+  { name: 'Vite', mark: 'Vi' },
+  { name: 'Next.js', mark: 'Nx' },
+  { name: 'Node.js', mark: 'No' },
+  { name: 'PostgreSQL', mark: 'Pg' },
+  { name: 'GraphQL', mark: 'Gq' },
+  { name: 'Figma', mark: 'Fi' },
+  { name: 'Vercel', mark: 'Vc' },
+] as const
+
 export const projects = [
   {
     index: '01',
     title: 'Nova Analytics',
+    category: 'Analytics platform',
     description:
-      'Real-time product analytics dashboard with streaming charts, cohort views and shareable links.',
-    tags: ['React', 'TypeScript', 'WebSockets'],
+      'Real-time product analytics dashboard with streaming charts, cohort views and shareable links. Built for teams that watch the numbers move live.',
     href: 'https://github.com',
     year: '2026',
+    visual: { variant: 1, tone: 'dark', base: '#14171a', accent: '#9fb6c9' },
   },
   {
     index: '02',
     title: 'Lumen UI',
+    category: 'Design system',
     description:
-      'Accessible React component library, 40+ primitives with copy-paste Tailwind recipes.',
-    tags: ['React', 'Tailwind CSS', 'Radix'],
+      'Accessible React component library — 40+ primitives with copy-paste Tailwind recipes, docs and visual tests.',
     href: 'https://github.com',
     year: '2025',
+    visual: { variant: 2, tone: 'light', base: '#e9e7e1', accent: '#a2603c' },
   },
   {
     index: '03',
     title: 'TokoPOS',
+    category: 'Commerce',
     description:
-      'Offline-first point of sale for small retail, with local sync and multi-outlet stock.',
-    tags: ['React', 'IndexedDB', 'Node.js'],
+      'Offline-first point of sale for small retail, with background sync and multi-outlet stock in one view.',
     href: 'https://github.com',
     year: '2025',
+    visual: { variant: 3, tone: 'dark', base: '#1b1917', accent: '#d3a469' },
   },
   {
     index: '04',
     title: 'Fieldnote',
+    category: 'Productivity',
     description:
-      'Writing app with local-first sync, version history and a distraction-free editor.',
-    tags: ['React', 'CRDT', 'Postgres'],
+      'Writing app with local-first sync, version history and a distraction-free editor that never loses a word.',
     href: 'https://github.com',
     year: '2024',
+    visual: { variant: 4, tone: 'light', base: '#e7e8e6', accent: '#55687f' },
+  },
+  {
+    index: '05',
+    title: 'Atlas Docs',
+    category: 'Developer tools',
+    description:
+      'Documentation platform with instant full-text search, versioned pages and a zero-config MDX authoring flow.',
+    href: 'https://github.com',
+    year: '2024',
+    visual: { variant: 5, tone: 'dark', base: '#111318', accent: '#8b96ad' },
   },
 ] as const
 

@@ -51,14 +51,14 @@ export default function Hero() {
           {profile.availability}
         </p>
 
-        <h1 className="mt-6 text-[clamp(3.25rem,8vw,6.5rem)] leading-[0.9] font-semibold tracking-[-0.05em] text-ink">
+        <h1 className="mt-6 text-[clamp(3.25rem,8vw,6.5rem)] leading-[0.9] font-semibold tracking-tighter text-ink">
           {profile.name}
           <span className="mt-1.5 block font-display text-[0.4em] leading-[1.1] font-normal tracking-[-0.01em] text-muted italic">
             {profile.role.toLowerCase()}
           </span>
         </h1>
 
-        <p className="mt-8 max-w-[34rem] text-[0.95rem] leading-[1.75] text-muted">
+        <p className="mt-8 max-w-136 text-[0.95rem] leading-[1.75] text-muted">
           {profile.description}
         </p>
 
@@ -79,7 +79,7 @@ export default function Hero() {
       </div>
 
       <div className="hidden lg:flex lg:h-full lg:gap-8">
-        <div className="relative min-h-[480px] flex-1">
+        <div className="relative min-h-120 flex-1">
           {portrait === 'failed' ? (
             <PortraitPlaceholder />
           ) : (
