@@ -10,7 +10,7 @@ export default function Experience() {
             key={item.period}
             className="grid gap-4 py-8 md:grid-cols-[10rem_1fr_1.3fr] md:items-baseline md:gap-8"
           >
-            <span className="text-xs tracking-[0.1em] text-faint">{item.period}</span>
+            <span className="text-xs tracking-widest text-faint">{item.period}</span>
             <div>
               <h3 className="font-medium tracking-[-0.02em] text-ink">{item.role}</h3>
               <p className="mt-1 text-sm text-muted">{item.company}</p>

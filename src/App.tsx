@@ -1,11 +1,11 @@
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
-import Contact from './sections/Contact'
-import Experience from './sections/Experience'
-import Hero from './sections/Hero'
-import Services from './sections/Services'
-import Stack from './sections/Stack'
-import Work from './sections/Work'
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Contact from "./sections/Contact";
+import Experience from "./sections/Experience";
+import Hero from "./sections/Hero";
+import Services from "./sections/Services";
+import Stack from "./sections/Stack";
+import Work from "./sections/Work";
 
 export default function App() {
   return (
@@ -17,12 +17,12 @@ export default function App() {
         <div className="mt-6">
           <Work />
           <Stack />
-          <Services />
           <Experience />
+          <Services />
           <Contact />
           <Footer />
         </div>
       </div>
     </div>
-  )
+  );
 }
