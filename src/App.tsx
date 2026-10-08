@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Contact from "./sections/Contact";
+import Education from "./sections/Education";
 import Experience from "./sections/Experience";
 import Hero from "./sections/Hero";
 import Services from "./sections/Services";
@@ -18,6 +19,7 @@ export default function App() {
           <Work />
           <Stack />
           <Experience />
+          <Education />
           <Services />
           <Contact />
           <Footer />

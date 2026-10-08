@@ -69,12 +69,6 @@ export default function Hero() {
           >
             Let&rsquo;s collaborate <ArrowUpRightIcon />
           </a>
-          <a
-            href="#work"
-            className="rounded-full border border-line px-6 py-3.5 text-sm font-medium text-ink transition-colors hover:border-ink"
-          >
-            View work
-          </a>
         </div>
       </div>
 

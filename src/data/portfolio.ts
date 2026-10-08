@@ -1,29 +1,28 @@
 export const profile = {
   name: 'Hirumi',
   role: 'Software Engineer',
-  eyebrow: 'Software Engineer · Jakarta',
+  eyebrow: 'Software Engineer · Tulungagung',
   tagline: 'Building thoughtful, fast products for the web.',
   description:
     'I design and build digital products end to end — from first wireframe to production deploy. Focused on clean interfaces, accessible interactions and interfaces that feel effortless.',
-  email: 'hirumi@example.com',
-  location: 'Jakarta, Indonesia',
+  email: 'hilminurullah3@gmail.com',
+  location: 'Tulungagung, Indonesia',
   availability: 'Available for freelance & full-time',
-  yearsExperience: '4+',
+  yearsExperience: '2+',
   projectsShipped: '20+',
 } as const
 
 export const navLinks = [
   { label: 'Work', href: '#work' },
-  { label: 'Stack', href: '#stack' },
-  { label: 'Services', href: '#services' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ] as const
 
 export const socials = [
-  { label: 'GitHub', href: 'https://github.com', icon: 'github' },
+  { label: 'GitHub', href: 'https://github.com/HirumiN', icon: 'github' },
   { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
-  { label: 'Email', href: 'mailto:hirumi@example.com', icon: 'mail' },
+  { label: 'Email', href: 'mailto:hilminurullah3@gmail.com', icon: 'mail' },
 ] as const
 
 export const tech = [
@@ -150,6 +149,27 @@ export const experience = [
     period: '2021 — 2022',
     points: [
       'Maintained client marketing sites and learned the craft of shipping small, often.',
+    ],
+  },
+] as const
+
+export const education = [
+  {
+    title: 'S1 Teknik Informatika',
+    place: 'Universitas Nusantara',
+    period: '2021 — 2025',
+    points: [
+      'IPK 3.7/4.0 — fokus pada rekayasa perangkat lunak dan desain antarmuka.',
+      'Tugas akhir: sistem deteksi anomali pembelajaran untuk LMS kampus.',
+    ],
+  },
+  {
+    title: 'Ketua',
+    place: 'DevCommunity — komunitas developer kampus',
+    period: '2023 — 2024',
+    points: [
+      'Menggelar 12+ workshop dan hackathon kampus dengan 400+ peserta.',
+      'Menjalankan program mentoring untuk 60 mahasiswa baru tiap angkatan.',
     ],
   },
 ] as const
