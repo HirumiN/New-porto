@@ -199,7 +199,7 @@ export default function Services() {
         setItem(next)
         setSequence((current) => current + 1)
         setPhase('in')
-        const delay = 2000 + Math.floor(Math.random() * 2000)
+        const delay = 1000 + Math.floor(Math.random() * 1000)
         timerRef.current = window.setTimeout(run, delay)
       }, 240)
     },
@@ -207,7 +207,7 @@ export default function Services() {
   )
 
   useEffect(() => {
-    const delay = 2000 + Math.floor(Math.random() * 2000)
+    const delay = 2000 + Math.floor(Math.random() * 1000)
     timerRef.current = window.setTimeout(runCycle, delay)
     return () => {
       if (timerRef.current) window.clearTimeout(timerRef.current)
@@ -240,11 +240,11 @@ export default function Services() {
       data-phrase-section
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className="flex scroll-mt-20 min-h-[55svh] items-center justify-center overflow-hidden border-b border-line px-6 py-24 sm:px-10 lg:min-h-[62svh]"
+      className="flex scroll-mt-20 min-h-[40svh] items-center justify-center overflow-hidden border-y border-line md:px-6 lg:min-h-[45svh]"
     >
       <div
         key={sequence}
-        className={`text-[clamp(2.5rem,6vw,7rem)] leading-[1.05] text-center whitespace-normal text-ink [text-wrap:balance] ${type} ${enter}`}
+        className={`text-[clamp(2.5rem,6vw,7rem)] leading-[1.05] text-center whitespace-normal text-ink text-balance ${type} ${enter}`}
       >
         <p className="sr-only">{item.text}</p>
         <PhraseContent item={item} />

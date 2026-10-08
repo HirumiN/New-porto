@@ -37,6 +37,12 @@ export const tech = [
   { name: 'GraphQL', mark: 'Gq' },
   { name: 'Figma', mark: 'Fi' },
   { name: 'Vercel', mark: 'Vc' },
+  { name: 'Laravel', mark: 'La' },
+  { name: 'Linux', mark: 'Li' },
+  { name: 'Docker', mark: 'Do' },
+  { name: 'Postman', mark: 'Pm' },
+  { name: 'Vue.js', mark: 'Vu' },
+  { name: 'Python', mark: 'Py' },
 ] as const
 
 export const projects = [

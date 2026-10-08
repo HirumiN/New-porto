@@ -3,12 +3,18 @@ import { experience } from '../data/portfolio'
 
 export default function Experience() {
   return (
-    <Section id="experience" index="04" title="Experience" meta="2021 — Present">
-      <ol className="divide-y divide-line border-t border-line">
+    <Section
+      id="experience"
+      title="Experience"
+      meta="2021 — Present"
+      className="mt-8 md:mt-0"
+      headerMb="mb-2"
+    >
+      <ol className="divide-y divide-line md:border-t md:border-line">
         {experience.map((item) => (
           <li
             key={item.period}
-            className="grid gap-4 py-8 md:grid-cols-[10rem_1fr_1.3fr] md:items-baseline md:gap-8"
+            className="grid gap-2 py-4 md:grid-cols-[10rem_1fr_1.3fr] md:items-baseline md:gap-8 md:py-8"
           >
             <span className="text-xs tracking-widest text-faint">{item.period}</span>
             <div>

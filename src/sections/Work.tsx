@@ -26,6 +26,7 @@ export default function Work() {
       loop: total > 1,
       grabCursor: true,
       watchOverflow: true,
+      autoHeight: window.matchMedia('(max-width: 767px)').matches,
       keyboard: { enabled: true },
       navigation: {
         prevEl: prevRef.current,
@@ -51,7 +52,7 @@ export default function Work() {
   const progress = ((active + 1) / total) * 100
 
   return (
-    <Section id="work" index="01" title="Selected work" meta={`${total} projects`}>
+    <Section id="work" title="Selected work" meta={`${total} projects`}>
       <div className="relative">
         <div ref={containerRef} className="swiper work-swiper">
           <div className="swiper-wrapper">
@@ -78,7 +79,7 @@ export default function Work() {
                       href={project.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="group mt-8 inline-flex w-fit items-center gap-2 border-b border-line pb-1.5 text-sm font-medium text-ink transition-colors hover:border-ink"
+                      className="group mt-5 inline-flex w-fit items-center gap-2 border-b border-line pb-1 text-sm font-medium text-ink transition-colors hover:border-ink md:mt-8 md:pb-1.5"
                     >
                       View case study
                       <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -110,7 +111,7 @@ export default function Work() {
 
       <div
         aria-hidden
-        className="mt-1 h-[2px] w-full overflow-hidden bg-line"
+        className="mt-0.5 h-px w-full overflow-hidden bg-line md:mt-1 md:h-[2px]"
       >
         <span
           className="block h-full bg-ink transition-[width] duration-700 ease-out"

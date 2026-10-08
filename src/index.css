@@ -47,6 +47,22 @@ body {
   animation: marquee 38s linear infinite;
 }
 
+.stack-scroller {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+
+.stack-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .marquee {
+    animation: none;
+  }
+}
+
 [data-marquee]:hover .marquee,
 [data-marquee]:focus-within .marquee {
   animation-play-state: paused;
