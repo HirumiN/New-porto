@@ -57,12 +57,6 @@ body {
   display: none;
 }
 
-@media (max-width: 767px) {
-  .marquee {
-    animation: none;
-  }
-}
-
 [data-marquee]:hover .marquee,
 [data-marquee]:focus-within .marquee {
   animation-play-state: paused;
@@ -71,6 +65,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .marquee {
     animation: none;
+  }
+
+  .stack-scroller {
+    overflow-x: auto;
   }
 }
 

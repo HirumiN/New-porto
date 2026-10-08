@@ -9,7 +9,7 @@ export default function Stack() {
       <div className="relative border-b border-line">
         <div
           data-marquee
-          className="stack-scroller overflow-x-auto py-5 md:overflow-hidden md:py-8"
+          className="stack-scroller overflow-hidden py-5 md:py-8"
           aria-label="Technologies I use"
         >
           <div className="marquee flex w-max items-center">
@@ -39,11 +39,11 @@ export default function Stack() {
 
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 hidden w-16 bg-linear-to-r from-canvas to-transparent md:block md:w-28"
+          className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-canvas to-transparent md:w-28"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-16 bg-linear-to-l from-canvas to-transparent md:block md:w-28"
+          className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-canvas to-transparent md:w-28"
         />
       </div>
     </section>
