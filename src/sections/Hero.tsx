@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { profile, socials } from '../data/portfolio'
 import { ArrowUpRightIcon } from '../components/icons'
 import { socialIcons } from '../lib/socialIcons'
-import heroImage from '../assets/hero.png'
+import heroImage from '../assets/hero1.png'
 
 const heroSocials = socials.filter((social) => social.icon !== 'mail')
 
@@ -44,7 +44,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="scroll-mt-20 -mt-4 pt-4 pb-16 sm:-mt-5 sm:pt-6 lg:-mt-[calc(3rem+2px)] lg:grid lg:min-h-[84svh] lg:grid-cols-[52fr_48fr] lg:items-stretch lg:gap-8 lg:pt-4 lg:pb-0 xl:gap-14"
+      className="scroll-mt-20 -mt-4 pt-4 pb-16 sm:-mt-5 sm:pt-6 lg:-mt-0.5 lg:grid lg:min-h-[84svh] lg:grid-cols-[52fr_48fr] lg:items-stretch lg:gap-8 lg:pt-4 lg:pb-0 xl:gap-14"
     >
       <div className="flex flex-col justify-center">
         <p className="flex items-center gap-2.5 text-[0.6875rem] tracking-[0.18em] text-muted uppercase">
@@ -70,6 +70,22 @@ export default function Hero() {
           >
             Let&rsquo;s collaborate <ArrowUpRightIcon />
           </a>
+          {heroSocials.map((social) => {
+            const Icon = socialIcons[social.icon]
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={social.label}
+                title={social.label}
+                className="grid size-11 place-items-center rounded-full border border-line/80 bg-canvas/70 backdrop-blur-sm text-muted transition-all hover:border-ink hover:text-ink hover:shadow-[0_4px_12px_rgba(11,11,11,0.08)]"
+              >
+                <Icon />
+              </a>
+            )
+          })}
         </div>
       </div>
 
@@ -83,32 +99,12 @@ export default function Hero() {
               alt={`${profile.name}, ${profile.role}`}
               onLoad={() => setPortrait('ready')}
               onError={() => setPortrait('failed')}
-              className={`absolute top-1/2 left-1/2 h-[120%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center grayscale mix-blend-multiply transition-opacity duration-700 ${fadeOut} ${
+              className={`absolute top-[46%] left-1/2 h-[110%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center grayscale mix-blend-multiply transition-opacity duration-700 ${fadeOut} ${
                 portrait === 'ready' ? 'opacity-100' : 'opacity-0'
               }`}
             />
           )}
         </div>
-
-        <ul className="relative z-30 flex shrink-0 flex-col justify-center gap-2.5">
-          {heroSocials.map((social) => {
-            const Icon = socialIcons[social.icon]
-            return (
-              <li key={social.label}>
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={social.label}
-                  title={social.label}
-                  className="grid size-10 place-items-center rounded-full border border-line/80 bg-canvas/70 backdrop-blur-sm text-muted transition-all hover:border-ink hover:text-ink hover:shadow-[0_4px_12px_rgba(11,11,11,0.08)]"
-                >
-                  <Icon />
-                </a>
-              </li>
-            )
-          })}
-        </ul>
       </div>
     </section>
   )
