@@ -1,13 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { navLinks, profile } from '../data/portfolio'
 import { ArrowUpRightIcon } from './icons'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHidden(window.scrollY > 8)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className="relative pt-6 sm:pt-8">
-      <div className="flex items-center justify-between gap-6 border-b border-line pb-5 sm:pb-6">
+    <nav
+      className={`fixed top-0 left-0 z-50 w-full px-6 transition-all duration-500 ease-out sm:px-10 lg:px-[6vw] ${
+        hidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+      }`}
+    >
+      <div className="flex items-center justify-between gap-6 py-4 sm:py-5">
         <a
           href="#top"
           onClick={() => setOpen(false)}

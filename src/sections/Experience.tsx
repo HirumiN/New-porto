@@ -6,7 +6,6 @@ export default function Experience() {
     <Section
       id="experience"
       title="Experience"
-      meta="2021 — Present"
       className="mt-8 md:mt-0"
       headerMb="mb-2"
     >

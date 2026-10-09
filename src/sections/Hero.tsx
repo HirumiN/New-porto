@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { profile, socials } from '../data/portfolio'
 import { ArrowUpRightIcon } from '../components/icons'
 import { socialIcons } from '../lib/socialIcons'
+import heroImage from '../assets/hero.png'
 
 const heroSocials = socials.filter((social) => social.icon !== 'mail')
 
@@ -43,7 +44,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="scroll-mt-20 pt-9 pb-16 sm:pt-11 lg:grid lg:min-h-[84svh] lg:grid-cols-[52fr_48fr] lg:items-stretch lg:gap-8 lg:pt-6 lg:pb-0 xl:gap-14"
+      className="scroll-mt-20 -mt-4 pt-4 pb-16 sm:-mt-5 sm:pt-6 lg:-mt-[calc(3rem+2px)] lg:grid lg:min-h-[84svh] lg:grid-cols-[52fr_48fr] lg:items-stretch lg:gap-8 lg:pt-4 lg:pb-0 xl:gap-14"
     >
       <div className="flex flex-col justify-center">
         <p className="flex items-center gap-2.5 text-[0.6875rem] tracking-[0.18em] text-muted uppercase">
@@ -73,23 +74,23 @@ export default function Hero() {
       </div>
 
       <div className="hidden lg:flex lg:h-full lg:gap-8">
-        <div className="relative min-h-120 flex-1">
+        <div className="relative z-20 min-h-120 flex-1">
           {portrait === 'failed' ? (
             <PortraitPlaceholder />
           ) : (
             <img
-              src="/portrait.png"
+              src={heroImage}
               alt={`${profile.name}, ${profile.role}`}
               onLoad={() => setPortrait('ready')}
               onError={() => setPortrait('failed')}
-              className={`absolute inset-0 h-full w-full object-cover object-[50%_14%] grayscale mix-blend-multiply transition-opacity duration-700 ${fadeOut} ${
+              className={`absolute top-1/2 left-1/2 h-[120%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center grayscale mix-blend-multiply transition-opacity duration-700 ${fadeOut} ${
                 portrait === 'ready' ? 'opacity-100' : 'opacity-0'
               }`}
             />
           )}
         </div>
 
-        <ul className="flex shrink-0 flex-col justify-center gap-2.5">
+        <ul className="relative z-30 flex shrink-0 flex-col justify-center gap-2.5">
           {heroSocials.map((social) => {
             const Icon = socialIcons[social.icon]
             return (
@@ -100,7 +101,7 @@ export default function Hero() {
                   rel="noreferrer"
                   aria-label={social.label}
                   title={social.label}
-                  className="grid size-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-ink hover:text-ink"
+                  className="grid size-10 place-items-center rounded-full border border-line/80 bg-canvas/70 backdrop-blur-sm text-muted transition-all hover:border-ink hover:text-ink hover:shadow-[0_4px_12px_rgba(11,11,11,0.08)]"
                 >
                   <Icon />
                 </a>

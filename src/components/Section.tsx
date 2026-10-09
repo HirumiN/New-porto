@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 type SectionProps = {
   id: string
   title: string
-  meta?: string
   className?: string
   headerMb?: string
   children: ReactNode
@@ -12,7 +11,6 @@ type SectionProps = {
 export default function Section({
   id,
   title,
-  meta,
   className = '',
   headerMb = 'mb-4',
   children,
@@ -23,7 +21,6 @@ export default function Section({
         <h2 className="flex items-baseline gap-3 text-xl font-medium tracking-[0.1em] text-muted uppercase md:tracking-[0.18em]">
           {title}
         </h2>
-        {meta ? <span className="text-xs text-faint">{meta}</span> : null}
       </div>
       {children}
     </section>

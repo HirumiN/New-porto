@@ -13,16 +13,17 @@ export default function App() {
     <div className="min-h-screen bg-canvas">
       <div className="px-6 sm:px-10 lg:px-[6vw]">
         <Navbar />
-        <Hero />
-
-        <div className="mt-6">
-          <Work />
-          <Stack />
-          <Experience />
-          <Education />
-          <Services />
-          <Contact />
-          <Footer />
+        <div className="pt-16 sm:pt-20">
+          <Hero />
+          <div className="mt-6">
+            <Work />
+            <Stack />
+            <Experience />
+            <Education />
+            <Services />
+            <Contact />
+            <Footer />
+          </div>
         </div>
       </div>
     </div>

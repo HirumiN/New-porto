@@ -6,7 +6,6 @@ export default function Education() {
     <Section
       id="education"
       title="Education & Leadership"
-      meta="2021 — 2025"
       className="mt-8 md:mt-0"
       headerMb="mb-2"
     >

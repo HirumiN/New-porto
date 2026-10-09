@@ -5,7 +5,7 @@ import { socialIcons } from '../lib/socialIcons'
 
 export default function Contact() {
   return (
-    <Section id="contact" title="Contact" meta={profile.location}>
+    <Section id="contact" title="Contact">
       <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:items-end md:gap-16">
         <div>
           <h2 className="text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.04em] text-ink">

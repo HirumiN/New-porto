@@ -52,7 +52,7 @@ export default function Work() {
   const progress = ((active + 1) / total) * 100
 
   return (
-    <Section id="work" title="Selected work" meta={`${total} projects`}>
+    <Section id="work" title="Selected work">
       <div className="relative">
         <div ref={containerRef} className="swiper work-swiper">
           <div className="swiper-wrapper">
@@ -95,7 +95,7 @@ export default function Work() {
           type="button"
           ref={prevRef}
           aria-label="Previous project"
-          className="work-nav group absolute inset-y-0 left-0 z-10 grid w-11 place-items-center text-muted transition-colors hover:bg-ink/[0.06] hover:text-ink md:w-14"
+          className="work-nav group absolute inset-y-0 left-0 z-10 grid w-11 cursor-pointer place-items-center text-muted transition-colors hover:bg-ink/[0.06] hover:text-ink md:w-14"
         >
           <ArrowLeftIcon className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
         </button>
@@ -103,7 +103,7 @@ export default function Work() {
           type="button"
           ref={nextRef}
           aria-label="Next project"
-          className="work-nav group absolute inset-y-0 right-0 z-10 grid w-11 place-items-center text-muted transition-colors hover:bg-ink/[0.06] hover:text-ink md:w-14"
+          className="work-nav group absolute inset-y-0 right-0 z-10 grid w-11 cursor-pointer place-items-center text-muted transition-colors hover:bg-ink/[0.06] hover:text-ink md:w-14"
         >
           <ArrowRightIcon className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
         </button>
