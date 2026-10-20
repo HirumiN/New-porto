@@ -52,7 +52,7 @@ export default function Work() {
   const progress = ((active + 1) / total) * 100
 
   return (
-    <Section id="work" title="Selected work" >
+    <Section id="work" title="My work" >
       <div className="relative">
         <div ref={containerRef} className="swiper work-swiper">
           <div className="swiper-wrapper">

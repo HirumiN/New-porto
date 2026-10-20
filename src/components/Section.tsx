@@ -18,7 +18,7 @@ export default function Section({
   return (
     <section id={id} className={`scroll-mt-10 md:py-10 ${className}`}>
       <div className={`${headerMb} flex items-end justify-between gap-3 border-b border-line pb-3 md:mb-12 md:gap-6 md:pb-5`}>
-        <h2 className="flex items-baseline gap-3 text-xl font-medium tracking-[0.1em] text-muted uppercase md:tracking-[0.18em]">
+        <h2 className="flex items-baseline gap-3 text-xl font-medium tracking-widest text-muted uppercase md:tracking-[0.18em]">
           {title}
         </h2>
       </div>

@@ -21,7 +21,6 @@ export const navLinks = [
 
 export const socials = [
   { label: 'GitHub', href: 'https://github.com/HirumiN', icon: 'github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
   { label: 'Email', href: 'mailto:hilminurullah3@gmail.com', icon: 'mail' },
 ] as const
 

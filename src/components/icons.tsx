@@ -10,14 +10,6 @@ export function GitHubIcon({ className = base }: IconProps) {
   )
 }
 
-export function LinkedInIcon({ className = base }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
-      <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 11 23 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21h-4V9Z" />
-    </svg>
-  )
-}
-
 export function MailIcon({ className = base }: IconProps) {
   return (
     <svg

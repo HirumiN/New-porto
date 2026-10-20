@@ -6,14 +6,16 @@ import heroImage from '../assets/hero1.png'
 
 const heroSocials = socials.filter((social) => social.icon !== 'mail')
 
+// Fade dihitung dari tepi container (wrapper), bukan tepi gambar,
+// karena gambar sedikit lebih besar dan meluber keluar container.
 const fadeOut =
-  '[mask-image:linear-gradient(to_bottom,#000_58%,rgba(0,0,0,0.55)_82%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,#000_58%,rgba(0,0,0,0.55)_82%,transparent_99%)]'
+  '[mask-image:linear-gradient(to_bottom,transparent_0%,#000_12%,#000_62%,rgba(0,0,0,0.55)_82%,transparent_99%),linear-gradient(to_right,transparent_0%,#000_20%,#000_80%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,#000_12%,#000_62%,rgba(0,0,0,0.55)_82%,transparent_99%),linear-gradient(to_right,transparent_0%,#000_20%,#000_80%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-composite:source-in]'
 
 function PortraitPlaceholder() {
   return (
     <svg
       viewBox="0 0 520 780"
-      className={`absolute inset-0 h-full w-full ${fadeOut}`}
+      className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom,transparent_0%,#000_12%,#000_62%,rgba(0,0,0,0.55)_82%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,#000_12%,#000_62%,rgba(0,0,0,0.55)_82%,transparent_99%)]"
       preserveAspectRatio="xMidYMin slice"
       aria-hidden
     >
@@ -90,7 +92,7 @@ export default function Hero() {
       </div>
 
       <div className="hidden lg:flex lg:h-full lg:gap-8">
-        <div className="relative z-20 min-h-120 flex-1">
+        <div className={`relative z-20 min-h-120 flex-1 ${fadeOut}`}>
           {portrait === 'failed' ? (
             <PortraitPlaceholder />
           ) : (
@@ -99,7 +101,7 @@ export default function Hero() {
               alt={`${profile.name}, ${profile.role}`}
               onLoad={() => setPortrait('ready')}
               onError={() => setPortrait('failed')}
-              className={`absolute top-[46%] left-1/2 h-[110%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center grayscale mix-blend-multiply transition-opacity duration-700 ${fadeOut} ${
+              className={`absolute top-[46%] left-1/2 h-[110%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center grayscale mix-blend-multiply transition-opacity duration-700 ${
                 portrait === 'ready' ? 'opacity-100' : 'opacity-0'
               }`}
             />
