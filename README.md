@@ -1,32 +1,64 @@
-# React + TypeScript + Vite
+# Hirumi — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio of Hirumi, a software engineer. Minimal, editorial, monochromatic.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS v4
+- Swiper (project carousel)
+- Oxlint
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # dev server
+npm run build    # type-check + build
+npm run preview  # preview production build
+npm run lint     # lint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Structure
+
+```
+src/
+  sections/     Hero, Work, Stack, Experience, Education, Services, Contact
+  components/   Navbar, Footer, Section, ProjectVisual, icons
+  data/         portfolio.ts (all content), logos.ts
+  lib/          socialIcons.ts
+  index.css     theme tokens + keyframes
+```
+
+## Editing content
+
+All content lives in `src/data/portfolio.ts` — profile, nav links, socials, projects,
+experience, education and tech stack. No CMS; edit the file and rebuild.
+
+Two optional links use the same convention, `string | null`:
+
+```ts
+// project or experience entry
+link: 'https://example.com',  // shows a clickable link
+link: null,                   // plain text, not clickable
+```
+
+`link` is required on every entry — TypeScript errors if you forget it.
+
+## Design tokens
+
+Defined in `src/index.css` under `@theme`:
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `canvas` | `#F7F7F5` | page background |
+| `paper` | `#FFFFFF` | tiles |
+| `shell` | `#EFEFED` | alternate section (token only, currently unused) |
+| `line` | `#E7E7E4` | borders, dividers |
+| `ink` | `#111111` | headings, primary text |
+| `muted` | `#686868` | body text, nav links |
+| `faint` | `#858585` | labels, metadata |
+| `hover` | `#292929` | primary button hover |
+
+Fonts: Inter (sans) and Instrument Serif (display), loaded in `index.html`.
