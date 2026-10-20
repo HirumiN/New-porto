@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from '../components/icons'
 import Section from '../components/Section'
 import { experience } from '../data/portfolio'
 
@@ -12,13 +13,25 @@ export default function Experience() {
       <ol className="divide-y divide-line">
         {experience.map((item) => (
           <li
-            key={item.period}
+            key={`${item.company}-${item.period}`}
             className="grid gap-2 py-4 md:grid-cols-[10rem_1fr_1.3fr] md:items-baseline md:gap-8 md:py-8"
           >
             <span className="text-xs tracking-widest text-faint">{item.period}</span>
             <div>
               <h3 className="font-medium tracking-[-0.02em] text-ink">{item.role}</h3>
-              <p className="mt-1 text-sm text-muted">{item.company}</p>
+              {item.link ? (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group mt-1 inline-flex items-center gap-1 text-sm text-muted underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-ink"
+                >
+                  {item.company}
+                  <ArrowUpRightIcon className="size-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              ) : (
+                <p className="mt-1 text-sm text-muted">{item.company}</p>
+              )}
             </div>
             <ul className="space-y-2 text-sm leading-relaxed text-muted">
               {item.points.map((point) => (

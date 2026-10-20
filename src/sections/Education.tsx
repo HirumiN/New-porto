@@ -12,7 +12,7 @@ export default function Education() {
       <ol className="divide-y divide-line">
         {education.map((item) => (
           <li
-            key={item.period}
+            key={`${item.title}-${item.period}`}
             className="grid gap-2 py-4 md:grid-cols-[10rem_1fr_1.3fr] md:items-baseline md:gap-8 md:py-8"
           >
             <span className="text-xs tracking-widest text-faint">{item.period}</span>

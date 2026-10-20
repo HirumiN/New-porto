@@ -48,7 +48,8 @@ export type Project = {
   title: string
   category: string
   description: string
-  href?: string
+  /** URL studi kasus/repo, atau null kalau tidak ada. */
+  link: string | null
   year: string
   visual: {
     variant: number
@@ -65,7 +66,7 @@ export const projects: readonly Project[] = [
     category: 'Analytics platform',
     description:
       'Real-time product analytics dashboard with streaming charts, cohort views and shareable links. Built for teams that watch the numbers move live.',
-    href: 'https://github.com',
+    link: null,
     year: '2026',
     visual: { variant: 1, tone: 'dark', base: '#14171a', accent: '#9fb6c9' },
   },
@@ -75,7 +76,7 @@ export const projects: readonly Project[] = [
     category: 'Design system',
     description:
       'Accessible React component library — 40+ primitives with copy-paste Tailwind recipes, docs and visual tests.',
-    href: 'https://github.com',
+    link: null,
     year: '2025',
     visual: { variant: 2, tone: 'light', base: '#e9e7e1', accent: '#a2603c' },
   },
@@ -85,7 +86,7 @@ export const projects: readonly Project[] = [
     category: 'Commerce',
     description:
       'Offline-first point of sale for small retail, with background sync and multi-outlet stock in one view.',
-    href: 'https://github.com',
+    link: null,
     year: '2025',
     visual: { variant: 3, tone: 'dark', base: '#1b1917', accent: '#d3a469' },
   },
@@ -95,7 +96,7 @@ export const projects: readonly Project[] = [
     category: 'Productivity',
     description:
       'Writing app with local-first sync, version history and a distraction-free editor that never loses a word.',
-    href: 'https://github.com',
+    link: null,
     year: '2024',
     visual: { variant: 4, tone: 'light', base: '#e7e8e6', accent: '#55687f' },
   },
@@ -105,87 +106,70 @@ export const projects: readonly Project[] = [
     category: 'Developer tools',
     description:
       'Documentation platform with instant full-text search, versioned pages and a zero-config MDX authoring flow.',
-    href: 'https://github.com',
+    link: null,
     year: '2024',
     visual: { variant: 5, tone: 'dark', base: '#111318', accent: '#8b96ad' },
   },
-] as const
+]
 
-export const services = [
-  {
-    index: '01',
-    title: 'Product Engineering',
-    description:
-      'Web apps built from scratch with React and TypeScript, shipped to production and documented.',
-  },
-  {
-    index: '02',
-    title: 'Interface Design',
-    description:
-      'Minimal, editorial interfaces built in Figma — design systems, prototypes and motion specs.',
-  },
-  {
-    index: '03',
-    title: 'Performance & SEO',
-    description:
-      'Audits and rebuilds that cut load time, improve Core Web Vitals and raise conversion.',
-  },
-  {
-    index: '04',
-    title: 'Frontend Consulting',
-    description:
-      'Code reviews, architecture guidance and team enablement for growing frontend teams.',
-  },
-] as const
+export type Experience = {
+  company: string
+  role: string
+  period: string
+  /** URL website perusahaan, atau null kalau tidak ada. */
+  link: string | null
+  points: readonly string[]
+}
 
-export const experience = [
+export const experience: readonly Experience[] = [
   {
-    company: 'Independent',
+    company: 'Freelance',
     role: 'Software Engineer',
-    period: '2024 — Present',
+    period: 'Present',
+    link: null,
     points: [
-      'Delivered product builds and internal tooling for 8+ clients across retail, fintech and education.',
-      'Reduced median page load from 3.1s to 0.9s on a legacy commerce storefront.',
+      'Developed and maintained web applications for various clients, ensuring high performance, responsiveness, and user-friendly interfaces.',
     ],
   },
   {
-    company: 'Studio Nine',
+    company: 'PT Liveboard Cruise Indonesia',
     role: 'Frontend Developer',
-    period: '2022 — 2024',
+    period: '2025',
+    link: 'https://www.liveaboard-indonesia.co.id/',
     points: [
-      'Built the design system adopted by five product teams.',
-      'Introduced visual regression testing and component review into the CI pipeline.',
+      'Developed a full-stack warehouse application for managing and tracking goods delivery, optimizing inventory operations and streamlining shipment workflows.',
     ],
   },
   {
-    company: 'First Step',
-    role: 'Junior Developer',
-    period: '2021 — 2022',
+    company: 'TimApp',
+    role: 'Front-end Developer',
+    period: '2025',
+    link: 'https://timapp.id/',
     points: [
-      'Maintained client marketing sites and learned the craft of shipping small, often.',
+      'As a Frontend Developer, I was responsible for implementing user-facing features, maintaining code quality, and ensuring seamless user experiences across devices.',
     ],
   },
-] as const
+]
 
 export const education = [
   {
     kind: 'education',
-    title: 'S1 Teknik Informatika',
-    place: 'Universitas Nusantara',
-    period: '2021 — 2025',
+    title: 'D4 Teknologi Rekayasa Multimedia',
+    place: 'Politeknik Elektronika Negeri Surabaya',
+    period: '2022 — 2026',
     points: [
-      'IPK 3.7/4.0 — fokus pada rekayasa perangkat lunak dan desain antarmuka.',
-      'Tugas akhir: sistem deteksi anomali pembelajaran untuk LMS kampus.',
+      'IPK 3.7/4.0 — Mempelajari berbagai bidang Software Engineering.',
+      'Tugas Akhir: Implementing Retrieval-Augmented Generation (RAG) in a Web-Based AI Assistant for Dynamic Student Career Development.',
     ],
   },
   {
     kind: 'campus',
-    title: 'Ketua',
-    place: 'DevCommunity — komunitas developer kampus',
+    title: 'Project Manager',
+    place: 'Game Developer — komunitas jejepangan di PENS',
     period: '2023 — 2024',
     points: [
-      'Menggelar 12+ workshop dan hackathon kampus dengan 400+ peserta.',
-      'Menjalankan program mentoring untuk 60 mahasiswa baru tiap angkatan.',
+      'Mengoordinasikan proses pengembangan game bersama tim, mulai dari perencanaan hingga implementasi.',
+      'Memantau kualitas game melalui pengujian fitur dan evaluasi hasil pengembangan sebelum finalisasi.',
     ],
   },
 ] as const

@@ -75,9 +75,9 @@ export default function Work() {
                       {project.description}
                     </p>
 
-                    {project.href ? (
+                    {project.link ? (
                       <a
-                        href={project.href}
+                        href={project.link}
                         target="_blank"
                         rel="noreferrer"
                         className="group mt-5 inline-flex w-fit items-center gap-2 border-b border-line pb-1 text-sm font-medium text-ink transition-colors hover:border-ink md:mt-8 md:pb-1.5"
