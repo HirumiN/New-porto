@@ -68,7 +68,7 @@ function Focal({ variant, accent }: { variant: number; accent: string }) {
 
 export default function ProjectVisual({ title, visual }: ProjectVisualProps) {
   const { variant, tone, base, accent } = visual
-  const grid = tone === 'dark' ? '#ffffff' : '#0b0b0b'
+  const grid = tone === 'dark' ? '#ffffff' : '#111111'
   const monogram = title.charAt(0)
   const gradientId = `visual-bg-${variant}`
   const glowId = `visual-glow-${variant}`
@@ -137,7 +137,7 @@ export default function ProjectVisual({ title, visual }: ProjectVisualProps) {
           style={{ backgroundColor: accent }}
           aria-hidden
         />
-        <span style={{ color: tone === 'dark' ? 'rgba(255,255,255,0.72)' : 'rgba(11,11,11,0.62)' }}>
+        <span style={{ color: tone === 'dark' ? 'rgba(255,255,255,0.72)' : 'rgba(17,17,17,0.62)' }}>
           Case study
         </span>
       </figcaption>

@@ -21,8 +21,8 @@ function PortraitPlaceholder() {
     >
       <defs>
         <radialGradient id="portrait-halo" cx="50%" cy="34%" r="56%">
-          <stop offset="0%" stopColor="#0b0b0b" stopOpacity="0.05" />
-          <stop offset="100%" stopColor="#0b0b0b" stopOpacity="0" />
+          <stop offset="0%" stopColor="#111111" stopOpacity="0.05" />
+          <stop offset="100%" stopColor="#111111" stopOpacity="0" />
         </radialGradient>
       </defs>
       <rect width="520" height="780" fill="url(#portrait-halo)" />
@@ -46,7 +46,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="scroll-mt-20 -mt-4 pt-4 pb-16 sm:-mt-5 sm:pt-6 lg:-mt-0.5 lg:grid lg:min-h-[84svh] lg:grid-cols-[52fr_48fr] lg:items-stretch lg:gap-8 lg:pt-4 lg:pb-0 xl:gap-14"
+      className="scroll-mt-20 -mt-4 pt-4 pb-8 sm:-mt-5 sm:pt-6 sm:pb-10 lg:-mt-0.5 lg:grid lg:min-h-[84svh] lg:grid-cols-[52fr_48fr] lg:items-stretch lg:gap-8 lg:pt-4 lg:pb-0 xl:gap-14"
     >
       <div className="flex flex-col justify-center">
         <p className="flex items-center gap-2.5 text-[0.6875rem] tracking-[0.18em] text-muted uppercase">
@@ -68,7 +68,7 @@ export default function Hero() {
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
             href="#contact"
-            className="rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-85"
+            className="rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-hover"
           >
             Let&rsquo;s collaborate <ArrowUpRightIcon />
           </a>
@@ -82,7 +82,7 @@ export default function Hero() {
                 rel="noreferrer"
                 aria-label={social.label}
                 title={social.label}
-                className="grid size-11 place-items-center rounded-full border border-line/80 bg-canvas/70 backdrop-blur-sm text-muted transition-all hover:border-ink hover:text-ink hover:shadow-[0_4px_12px_rgba(11,11,11,0.08)]"
+                className="grid size-11 place-items-center rounded-full border border-line bg-canvas/70 backdrop-blur-sm text-muted transition-colors hover:border-ink hover:text-ink"
               >
                 <Icon />
               </a>

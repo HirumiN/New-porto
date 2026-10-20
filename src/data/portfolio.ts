@@ -43,7 +43,22 @@ export const tech = [
   { name: 'Python', mark: 'Py' },
 ] as const
 
-export const projects = [
+export type Project = {
+  index: string
+  title: string
+  category: string
+  description: string
+  href?: string
+  year: string
+  visual: {
+    variant: number
+    tone: 'dark' | 'light'
+    base: string
+    accent: string
+  }
+}
+
+export const projects: readonly Project[] = [
   {
     index: '01',
     title: 'Nova Analytics',
@@ -154,6 +169,7 @@ export const experience = [
 
 export const education = [
   {
+    kind: 'education',
     title: 'S1 Teknik Informatika',
     place: 'Universitas Nusantara',
     period: '2021 — 2025',
@@ -163,6 +179,7 @@ export const education = [
     ],
   },
   {
+    kind: 'campus',
     title: 'Ketua',
     place: 'DevCommunity — komunitas developer kampus',
     period: '2023 — 2024',

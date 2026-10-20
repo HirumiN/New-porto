@@ -7,9 +7,9 @@ export default function Experience() {
       id="experience"
       title="Experience"
       className="mt-8 md:mt-0"
-      headerMb="mb-2"
+      headerMb="mb-0"
     >
-      <ol className="divide-y divide-line md:border-t md:border-line">
+      <ol className="divide-y divide-line">
         {experience.map((item) => (
           <li
             key={item.period}

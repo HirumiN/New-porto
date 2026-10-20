@@ -75,15 +75,17 @@ export default function Work() {
                       {project.description}
                     </p>
 
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group mt-5 inline-flex w-fit items-center gap-2 border-b border-line pb-1 text-sm font-medium text-ink transition-colors hover:border-ink md:mt-8 md:pb-1.5"
-                    >
-                      View case study
-                      <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </a>
+                    {project.href ? (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group mt-5 inline-flex w-fit items-center gap-2 border-b border-line pb-1 text-sm font-medium text-ink transition-colors hover:border-ink md:mt-8 md:pb-1.5"
+                      >
+                        View case study
+                        <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </a>
+                    ) : null}
                   </div>
                 </article>
               </div>

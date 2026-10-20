@@ -240,7 +240,7 @@ export default function Services() {
       data-phrase-section
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className="flex scroll-mt-20 min-h-[40svh] items-center justify-center overflow-hidden border-y border-line md:px-6 lg:min-h-[45svh]"
+      className="flex scroll-mt-20 min-h-[40svh] items-center justify-center overflow-hidden md:px-6 lg:min-h-[45svh]"
     >
       <div
         key={sequence}

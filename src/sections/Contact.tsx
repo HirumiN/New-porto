@@ -22,29 +22,31 @@ export default function Contact() {
 
           <a
             href={`mailto:${profile.email}`}
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-85"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-hover"
           >
             {profile.email} <ArrowUpRightIcon />
           </a>
         </div>
 
         <ul className="flex flex-wrap gap-3 md:justify-end">
-          {socials.map((social) => {
-            const Icon = socialIcons[social.icon]
-            return (
-              <li key={social.label}>
-                <a
-                  href={social.href}
-                  target={social.href.startsWith('http') ? '_blank' : undefined}
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm text-muted transition-colors hover:border-ink hover:text-ink"
-                >
-                  <Icon className="h-3.5 w-3.5" />
-                  {social.label}
-                </a>
-              </li>
-            )
-          })}
+          {socials
+            .filter((social) => social.icon !== 'mail')
+            .map((social) => {
+              const Icon = socialIcons[social.icon]
+              return (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm text-muted transition-colors hover:border-ink hover:text-ink"
+                  >
+                    <Icon className="h-3.5 w-3.5" />
+                    {social.label}
+                  </a>
+                </li>
+              )
+            })}
         </ul>
       </div>
     </Section>

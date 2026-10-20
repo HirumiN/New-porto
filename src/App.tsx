@@ -13,9 +13,9 @@ export default function App() {
     <div className="min-h-screen bg-canvas">
       <div className="px-6 sm:px-10 lg:px-[6vw]">
         <Navbar />
-        <div className="pt-16 sm:pt-20">
+        <div className="pt-24 sm:pt-28 lg:pt-20">
           <Hero />
-          <div className="mt-6">
+          <div className="mt-2 lg:mt-6">
             <Work />
             <Stack />
             <Experience />

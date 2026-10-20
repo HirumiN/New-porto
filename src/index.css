@@ -5,15 +5,16 @@
   --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
 
   /* surfaces */
-  --color-canvas: #f8f8f6;
+  --color-canvas: #f7f7f5;
   --color-paper: #ffffff;
-  --color-shell: #fbfbf9;
-  --color-line: #e9e9e5;
+  --color-shell: #efefed;
+  --color-line: #e7e7e4;
 
   /* ink */
-  --color-ink: #0b0b0b;
-  --color-muted: #70706e;
-  --color-faint: #a1a19d;
+  --color-ink: #111111;
+  --color-muted: #686868;
+  --color-faint: #858585;
+  --color-hover: #292929;
 }
 
 html {
@@ -111,10 +112,10 @@ body {
 }
 @keyframes phrase-glitch {
   0%, 100% { transform: none; text-shadow: none }
-  20% { transform: translate(-3px, 1px) skewX(-2deg); text-shadow: 2px 0 rgba(166, 97, 60, 0.4), -2px 0 rgba(85, 104, 127, 0.4) }
-  40% { transform: translate(3px, -1px) skewX(2deg); text-shadow: -2px 0 rgba(166, 97, 60, 0.35), 2px 0 rgba(85, 104, 127, 0.35) }
-  60% { transform: translate(-2px, 0); text-shadow: 1.5px 0 rgba(166, 97, 60, 0.3), -1.5px 0 rgba(85, 104, 127, 0.3) }
-  80% { transform: translate(2px, 1px); text-shadow: -1px 0 rgba(166, 97, 60, 0.3), 1px 0 rgba(85, 104, 127, 0.3) }
+  20% { transform: translate(-3px, 1px) skewX(-2deg); text-shadow: 2px 0 rgba(17, 17, 17, 0.35), -2px 0 rgba(133, 133, 133, 0.4) }
+  40% { transform: translate(3px, -1px) skewX(2deg); text-shadow: -2px 0 rgba(17, 17, 17, 0.3), 2px 0 rgba(133, 133, 133, 0.35) }
+  60% { transform: translate(-2px, 0); text-shadow: 1.5px 0 rgba(17, 17, 17, 0.28), -1.5px 0 rgba(133, 133, 133, 0.3) }
+  80% { transform: translate(2px, 1px); text-shadow: -1px 0 rgba(17, 17, 17, 0.28), 1px 0 rgba(133, 133, 133, 0.3) }
 }
 @keyframes phrase-out {
   to { opacity: 0; filter: blur(0.5rem); transform: translateY(-0.4rem) }
