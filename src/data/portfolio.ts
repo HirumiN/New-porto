@@ -43,6 +43,17 @@ export const tech = [
   { name: 'Python', mark: 'Py' },
 ] as const
 
+export type VisualScreen = {
+  variant: number
+  tone: 'dark' | 'light'
+  base: string
+  accent: string
+  /** Path gambar riil (mis. /img/warehouse-web.jpeg). Bila ada, menggantikan art abstrak. */
+  image?: string
+  /** Tampilkan bezel/bingkai perangkat. Default true. */
+  frame?: boolean
+}
+
 export type Project = {
   index: string
   title: string
@@ -51,64 +62,189 @@ export type Project = {
   /** URL studi kasus/repo, atau null kalau tidak ada. */
   link: string | null
   year: string
+  /**
+   * Tampilan visual per perangkat.
+   * - laptop & mobile terisi → tampilkan keduanya
+   * - salah satu null → tampilkan sisanya saja
+   * - keduanya null → tampilkan placeholder
+   */
   visual: {
-    variant: number
-    tone: 'dark' | 'light'
-    base: string
-    accent: string
+    laptop: VisualScreen | null
+    mobile: VisualScreen | null
   }
 }
 
 export const projects: readonly Project[] = [
   {
     index: '01',
-    title: 'Nova Analytics',
-    category: 'Analytics platform',
+    title: 'Warehouse',
+    category: 'Warehouse Management System',
     description:
-      'Real-time product analytics dashboard with streaming charts, cohort views and shareable links. Built for teams that watch the numbers move live.',
+      'Full-stack warehouse application for managing and tracking goods delivery, optimizing inventory operations and streamlining shipment workflows.',
     link: null,
-    year: '2026',
-    visual: { variant: 1, tone: 'dark', base: '#14171a', accent: '#9fb6c9' },
+    year: '2025',
+    visual: {
+      laptop: {
+        variant: 1,
+        tone: 'light',
+        base: '#ffedd5',
+        accent: '#ea580c',
+        image: '/img/warehouse-web.jpeg',
+      },
+      mobile: {
+        variant: 1,
+        tone: 'light',
+        base: '#ffedd5',
+        accent: '#ea580c',
+        image: '/img/warehouse-mobile.jpeg',
+      },
+    },
   },
   {
     index: '02',
-    title: 'Lumen UI',
-    category: 'Design system',
+    title: 'Labtrack',
+    category: 'Learning Management System',
     description:
-      'Accessible React component library — 40+ primitives with copy-paste Tailwind recipes, docs and visual tests.',
+      'LabTrack is a digital solution that replaces paper-based lab skill tracking with a streamlined, transparent, and accountable workflow from student evidence submission to lecturer approval and skill certification.',
     link: null,
-    year: '2025',
-    visual: { variant: 2, tone: 'light', base: '#e9e7e1', accent: '#a2603c' },
+    year: '2026',
+    visual: {
+      laptop: {
+        variant: 2,
+        tone: 'light',
+        base: '#e8f3ee',
+        accent: '#1f8a5b',
+        image: '/img/labtrack-web.png',
+      },
+      mobile: {
+        variant: 2,
+        tone: 'light',
+        base: '#e8f3ee',
+        accent: '#1f8a5b',
+        image: '/img/labtrack-mobile.png',
+      },
+    },
   },
   {
     index: '03',
-    title: 'TokoPOS',
-    category: 'Commerce',
+    title: 'Website AI-Career',
+    category: 'Research',
     description:
-      'Offline-first point of sale for small retail, with background sync and multi-outlet stock in one view.',
-    link: null,
-    year: '2025',
-    visual: { variant: 3, tone: 'dark', base: '#1b1917', accent: '#d3a469' },
+      'An interactive, AI-powered consultation platform designed to help students plan their academic, career, and entrepreneurial roadmaps with customized step-by-step guidance.',
+    link: 'https://github.com/HirumiN/Rekomendasi-Karir',
+    year: '2026',
+    visual: {
+      laptop: {
+        variant: 3,
+        tone: 'light',
+        base: '#ecfdf5',
+        accent: '#059669',
+        image: '/img/AIcareer-web.png',
+      },
+      mobile: null,
+    },
   },
   {
     index: '04',
-    title: 'Fieldnote',
-    category: 'Productivity',
+    title: 'E-Asrama',
+    category: 'Student Housing Management Software',
     description:
-      'Writing app with local-first sync, version history and a distraction-free editor that never loses a word.',
-    link: null,
-    year: '2024',
-    visual: { variant: 4, tone: 'light', base: '#e7e8e6', accent: '#55687f' },
+      'Dormitory management system for room allocation, occupancy tracking and resident services in one place.',
+    link: 'https://github.com/HirumiN/izin-asrama',
+    year: '2026',
+    visual: {
+      laptop: {
+        variant: 4,
+        tone: 'light',
+        base: '#e8f1fa',
+        accent: '#3b82f6',
+        image: '/img/asrama-web.png',
+      },
+      mobile: {
+        variant: 4,
+        tone: 'light',
+        base: '#e8f1fa',
+        accent: '#3b82f6',
+        image: '/img/asrama-mobile.png',
+      },
+    },
   },
   {
     index: '05',
-    title: 'Atlas Docs',
-    category: 'Developer tools',
+    title: 'HeartString',
+    category: 'Visual Novel Game',
     description:
-      'Documentation platform with instant full-text search, versioned pages and a zero-config MDX authoring flow.',
+      'Interactive visual novel game with multiple endings and several heroines, where player choices shape the story.',
+    link: 'https://astreda.itch.io/heartstring',
+    year: '2025',
+    visual: {
+      laptop: {
+        variant: 1,
+        tone: 'light',
+        base: '#fde7f0',
+        accent: '#ec4899',
+        image: '/img/HeartString-web.png',
+      },
+      mobile: null,
+    },
+  },
+  {
+    index: '07',
+    title: 'Kosan',
+    category: 'Boarding House Management',
+    description:
+      'Boarding house management app for room availability, billing and tenant information.',
     link: null,
-    year: '2024',
-    visual: { variant: 5, tone: 'dark', base: '#111318', accent: '#8b96ad' },
+    year: '2025',
+    visual: {
+      laptop: null,
+      mobile: {
+        variant: 1,
+        tone: 'light',
+        base: '#ccfbf1',
+        accent: '#0d9488',
+        image: '/img/kosan.png',
+        frame: false,
+      },
+    },
+  },
+  {
+    index: '08',
+    title: 'Sales Web',
+    category: 'Sales Platform',
+    description:
+      'Web-based sales platform for tracking leads, deals and revenue in one dashboard.',
+    link: null,
+    year: '2025',
+    visual: {
+      laptop: {
+        variant: 1,
+        tone: 'dark',
+        base: '#1e3a8a',
+        accent: '#60a5fa',
+        image: '/img/sales-web.png',
+      },
+      mobile: null,
+    },
+  },
+  {
+    index: '09',
+    title: 'Xora',
+    category: 'Landing Page',
+    description:
+      'Modern, responsive landing page for the Xora product with animated sections and clear conversion flow.',
+    link: null,
+    year: '2025',
+    visual: {
+      laptop: {
+        variant: 1,
+        tone: 'light',
+        base: '#eef2ff',
+        accent: '#4f46e5',
+        image: '/img/Xora.png',
+      },
+      mobile: null,
+    },
   },
 ]
 
