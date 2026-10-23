@@ -1,5 +1,110 @@
-import { useId } from 'react'
+import { useCallback, useRef, useState, useId } from 'react'
 import type { VisualScreen } from '../data/portfolio'
+
+type ImageStatus = 'loading' | 'loaded' | 'error'
+
+/**
+ * Gambar project dengan loader saat jaringan lambat dan placeholder
+ * apabila gagal dimuat. State dikelola per gambar agar slide yang
+ * berisi dua gambar (laptop + mobile) tidak saling mempengaruhi.
+ */
+function ImageWithLoader({
+  src,
+  alt,
+  imgClassName,
+  wrapperClassName,
+  loading = 'lazy',
+}: {
+  src: string
+  alt: string
+  imgClassName: string
+  wrapperClassName?: string
+  loading?: 'lazy' | 'eager'
+}) {
+  const [status, setStatus] = useState<ImageStatus>('loading')
+  const [prevSrc, setPrevSrc] = useState(src)
+  if (src !== prevSrc) {
+    setPrevSrc(src)
+    setStatus('loading')
+  }
+  const imgRef = useRef<HTMLImageElement>(null)
+  const setImgRef = useCallback((node: HTMLImageElement | null) => {
+    imgRef.current = node
+    if (node && node.complete) {
+      if (node.naturalWidth > 0) setStatus('loaded')
+      else setStatus('error')
+    }
+  }, [])
+
+  return (
+    <div
+      className={`relative ${wrapperClassName ?? ''} ${
+        status !== 'loaded' ? 'min-h-32' : ''
+      }`}
+    >
+      {status !== 'error' ? (
+        <img
+          ref={setImgRef}
+          src={src}
+          alt={alt}
+          loading={loading}
+          decoding="async"
+          onLoad={() => setStatus('loaded')}
+          onError={() => setStatus('error')}
+          className={`${imgClassName} transition-opacity duration-500 ${
+            status === 'loaded' ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ) : null}
+
+      {status === 'loading' ? (
+        <div
+          className="absolute inset-0 grid place-items-center bg-shell/70 backdrop-blur-[1px]"
+          aria-busy="true"
+          aria-label={`Memuat ${alt}`}
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span
+              className="size-7 animate-spin rounded-full border-2 border-line border-t-ink"
+              aria-hidden
+            />
+            <span className="text-[0.625rem] tracking-[0.2em] text-muted uppercase">
+              Loading
+            </span>
+          </div>
+        </div>
+      ) : null}
+
+      {status === 'error' ? (
+        <div
+          className="absolute inset-0 grid place-items-center bg-shell/50 px-4"
+          role="img"
+          aria-label={`${alt} — gagal dimuat`}
+        >
+          <div className="flex flex-col items-center gap-3 text-center">
+            <svg
+              viewBox="0 0 72 52"
+              className="h-11 w-14 text-faint sm:h-12 sm:w-16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              aria-hidden
+            >
+              <rect x="1" y="1" width="46" height="31" rx="3" />
+              <path d="M16 40h16M24 32v8" strokeLinecap="round" />
+              <rect x="52" y="12" width="19" height="32" rx="3.5" />
+              <path d="M58.5 17.5h6" strokeLinecap="round" />
+              <path d="M4 48 68 4" strokeLinecap="round" opacity="0.5" />
+            </svg>
+            <p className="text-[0.625rem] tracking-[0.2em] text-muted uppercase">
+              Preview unavailable
+            </p>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  )
+}
 
 type ProjectVisualProps = {
   title: string
@@ -88,12 +193,12 @@ function ScreenArt({
 
   if (image) {
     return (
-      <img
+      <ImageWithLoader
         src={image}
         alt={`${title} preview`}
-        className="absolute inset-0 h-full w-full object-cover"
+        imgClassName="absolute inset-0 h-full w-full object-cover"
+        wrapperClassName="absolute inset-0 h-full w-full"
         loading="lazy"
-        decoding="async"
       />
     )
   }
@@ -180,19 +285,18 @@ function LaptopFrame({ title, screen }: { title: string; screen: VisualScreen })
             className="relative overflow-hidden rounded-t-[5px]"
             style={{ boxShadow: `inset 0 0 0 1px ${edge}` }}
           >
-            <img
+            <ImageWithLoader
               src={screen.image}
               alt={`${title} preview`}
-              className="block w-full h-auto"
-              style={{ imageRendering: 'auto' }}
+              imgClassName="block w-full h-auto"
+              wrapperClassName="block w-full"
               loading="lazy"
-              decoding="async"
             />
           </div>
         </div>
         {/* Alas laptop */}
         <div
-          className="absolute inset-x-[-2.5%] -bottom-[5px] h-[9px] rounded-b-[7px]"
+          className="absolute inset-x-[-2.5%] -bottom-1.25 h-2.25 rounded-b-[7px]"
           style={{ backgroundColor: bezel }}
           aria-hidden
         />
@@ -212,7 +316,7 @@ function LaptopFrame({ title, screen }: { title: string; screen: VisualScreen })
       </div>
       {/* Alas laptop */}
       <div
-        className="absolute inset-x-[-2.5%] -bottom-[5px] h-[9px] rounded-b-[7px]"
+        className="absolute inset-x-[-2.5%] -bottom-1.25 h-2.25 rounded-b-[7px]"
         style={{ backgroundColor: bezel }}
         aria-hidden
       />
@@ -303,7 +407,7 @@ export default function ProjectVisual({ title, visual }: ProjectVisualProps) {
           /* Keduanya ada → laptop dengan mobile yang menumpang di depannya */
           <div className="relative w-full max-w-[98%]">
             <LaptopFrame title={title} screen={laptop} />
-            <div className="absolute right-0 bottom-[-7%] aspect-9/19 w-[22%] min-w-[68px]">
+            <div className="absolute right-0 bottom-[-7%] aspect-9/19 w-[22%] min-w-17">
               <PhoneFrame title={title} screen={mobile} />
             </div>
           </div>
